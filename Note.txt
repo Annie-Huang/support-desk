@@ -19,5 +19,7 @@ This project is Part 5.
 
 =============================================
 PS C:\react> mkdir support-desk
+PS C:\react\support-desk> npm i express dotenv mongoose colors bcryptjs
+
 
 PS C:\react\support-desk> npm start
