@@ -1,0 +1,21 @@
+React Front To Back 2022
+https://www.udemy.com/course/react-front-to-back-2022/learn/lecture/29767686#content
+
+https://github.com/bradtraversy/feedback-app
+https://github.com/bradtraversy/github-finder-app
+https://github.com/bradtraversy/house-marketplace
+https://github.com/bradtraversy/support-desk
+https://gist.github.com/bradtraversy
+
+https://www.mongodb.com/
+https://www.mongodb.com/products/compass
+mongodb+srv://annie:annieannie@anniecluster.koxhk.mongodb.net/test
+
+Part 1 is at C:\react\feedback-app
+Part 2 is at C:\react\github-finder
+Part 3 is at C:\react\react-sandbox
+Part 4 is at C:\react\house-marketplace
+This project is Part 5.
+
+=============================================
+PS C:\react> mkdir support-desk
