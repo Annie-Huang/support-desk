@@ -23,3 +23,4 @@ PS C:\react\support-desk> npm i express dotenv mongoose colors bcryptjs
 PS C:\react\support-desk> npm i -D nodemon
 
 PS C:\react\support-desk> npm start
+PS C:\react\support-desk> npm run server
