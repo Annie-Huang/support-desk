@@ -19,3 +19,5 @@ This project is Part 5.
 
 =============================================
 PS C:\react> mkdir support-desk
+
+PS C:\react\support-desk> npm start

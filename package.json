@@ -1,0 +1,20 @@
+{
+  "name": "support-desk",
+  "version": "1.0.0",
+  "description": "Support ticket app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Annie-Huang/support-desk.git"
+  },
+  "keywords": [],
+  "author": "Annie Huang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Annie-Huang/support-desk/issues"
+  },
+  "homepage": "https://github.com/Annie-Huang/support-desk#readme"
+}
