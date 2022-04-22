@@ -11,6 +11,8 @@ https://www.mongodb.com/
 https://www.mongodb.com/products/compass
 mongodb+srv://annie:annieannie@anniecluster.koxhk.mongodb.net/test
 
+https://github.com/Abazhenov/express-async-handler
+
 Part 1 is at C:\react\feedback-app
 Part 2 is at C:\react\github-finder
 Part 3 is at C:\react\react-sandbox
@@ -21,6 +23,7 @@ This project is Part 5.
 PS C:\react> mkdir support-desk
 PS C:\react\support-desk> npm i express dotenv mongoose colors bcryptjs
 PS C:\react\support-desk> npm i -D nodemon
+PS C:\react\support-desk> npm install --save express-async-handler
 
 PS C:\react\support-desk> npm start
 PS C:\react\support-desk> npm run server
