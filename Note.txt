@@ -33,3 +33,6 @@ PS C:\react\support-desk\frontend> npm i react-router-dom react-toastify axios r
 
 PS C:\react\support-desk> npm start
 PS C:\react\support-desk> npm run server
+
+
+I will keep the support-desk\frontend\src\features\counter so you can see the example from redux official template
