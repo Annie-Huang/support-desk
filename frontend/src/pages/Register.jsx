@@ -12,9 +12,14 @@ const Register = () => {
   const { name, email, password, password2 } = formData;
 
   return (
-    <div>
-      <h1>Register</h1>
-    </div>
+    <>
+      <section className='heading'>
+        <h1>
+          <FaUser /> Register
+        </h1>
+        <p>Please create an account</p>
+      </section>
+    </>
   );
 };
 
