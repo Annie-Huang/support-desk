@@ -42,14 +42,14 @@ export const authSlice = createSlice({
       .addCase(register.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(register.fullfilled, (state, action) => {
+      .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.user = action.payload;
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = true;
+        state.Error = true;
         state.message = action.payload; // will pass in through thunkAPI.rejectWithValue(message);
         state.user = null;
       });
