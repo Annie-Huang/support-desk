@@ -19,6 +19,14 @@ const Register = () => {
     }));
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    if (password !== password2) {
+      toast.error('Passwords do not match');
+    }
+  };
+
   return (
     <>
       <section className='heading'>
@@ -29,7 +37,7 @@ const Register = () => {
       </section>
 
       <section className='form'>
-        <form>
+        <form onSubmit={onSubmit}>
           <div className='form-group'>
             <input
               type='text'
