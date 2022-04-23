@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchCount } from '../counter/counterAPI';
 
 const initialState = {
-  user: null,
+  user: 'Annie',
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -10,7 +10,7 @@ const initialState = {
 };
 
 // The name ('auth/register') can be anything, not need to match api
-export const incrementAsync = createAsyncThunk(
+export const register = createAsyncThunk(
   'auth/register',
   async (user, thunkAPI) => {
     console.log(user);
