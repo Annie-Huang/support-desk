@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import { FaUser } from 'react-icons/fa';
 
 const Register = () => {
