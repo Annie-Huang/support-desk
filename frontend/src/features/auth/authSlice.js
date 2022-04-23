@@ -14,7 +14,16 @@ const initialState = {
 export const register = createAsyncThunk(
   'auth/register',
   async (user, thunkAPI) => {
-    console.log('register, user=', user);
+    // console.log('register, user=', user);
+
+    try {
+      return await authService.register(user);
+    } catch (error) {
+      const message =
+        error?.response?.data?.message || error.message || error.toString();
+
+      return thunkAPI.rejectWithValue(message);
+    }
   }
 );
 
