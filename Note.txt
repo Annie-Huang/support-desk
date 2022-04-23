@@ -28,6 +28,8 @@ PS C:\react\support-desk> npm i jsonwebtoken
 
 PS C:\react\support-desk> npx create-react-app frontend --template redux
 PS C:\react\support-desk> npm i concurrently
+PS C:\react\support-desk\frontend> npm i react-router-dom react-toastify axios react-icons react-modal --force
+
 
 PS C:\react\support-desk> npm start
 PS C:\react\support-desk> npm run server
