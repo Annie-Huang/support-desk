@@ -12,10 +12,9 @@ const protect = asyncHandler(async (req, res, next) => {
   ) {
     try {
       // Get token from header
-      // req.headers.authorization = 'Bearer Token', so req.headers.authorization.split(' ') will return ['Bearer', 'Token']
-      console.log('req.headers.authorization=', req.headers.authorization);
+      // req.headers.authorization = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjM1ODE5YWRjMDNhMWVkMWI5MzdjMyIsImlhdCI6MTY1MDY3ODI3NywiZXhwIjoxNjUzMjcwMjc3fQ.AJvskdgub1lHYRzLjh7cfBnz_hsFcqGvGIpEXfUtMdI',
+      // so req.headers.authorization.split(' ') will return ['Bearer', <token>]
       token = req.headers.authorization.split(' ')[1];
-      console.log('token=', token);
       // Verify token
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       // Get suer from token

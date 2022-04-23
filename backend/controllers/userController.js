@@ -79,7 +79,15 @@ const loginUser = asyncHandler(async (req, res) => {
 // @route   /api/users/me
 // @access  Private
 const getMe = asyncHandler(async (req, res) => {
-  res.send('me');
+  // res.send('me');
+
+  // user will be added into req after successfully verify jwt through the authMiddleware.js
+  const user = {
+    id: req.user._id,
+    email: req.user.email,
+    name: req.user.name,
+  };
+  res.status(200).json(user);
 });
 
 // Generate token
