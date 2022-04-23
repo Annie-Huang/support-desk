@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchCount } from '../counter/counterAPI';
 
 const initialState = {
-  user: 'Annie',
+  user: null,
   isError: false,
   isSuccess: false,
   isLoading: false,

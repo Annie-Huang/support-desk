@@ -31,6 +31,14 @@ const Register = () => {
 
     if (password !== password2) {
       toast.error('Passwords do not match');
+    } else {
+      const userData = {
+        name,
+        email,
+        password,
+      };
+
+      dispatch(register(userData));
     }
   };
 
@@ -38,7 +46,7 @@ const Register = () => {
     <>
       <section className='heading'>
         <h1>
-          <FaUser /> Register {user}
+          <FaUser /> Register
         </h1>
         <p>Please create an account</p>
       </section>
