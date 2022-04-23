@@ -31,7 +31,9 @@ const Register = () => {
     if (isSuccess || user) {
       navigate('/');
     }
-  });
+
+    dispatch(reset());
+  }, [isError, isSuccess, user, message, navigate, dispatch]);
 
   const onChange = (e) => {
     setFormData((prevState) => ({
