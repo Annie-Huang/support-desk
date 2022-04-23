@@ -47,6 +47,7 @@ const Register = () => {
               value={name}
               onChange={onChange}
               placeholder='Enter your name'
+              required
             />
           </div>
           <div className='form-group'>
@@ -58,6 +59,7 @@ const Register = () => {
               value={email}
               onChange={onChange}
               placeholder='Enter your email'
+              required
             />
           </div>
           <div className='form-group'>
@@ -69,6 +71,7 @@ const Register = () => {
               value={password}
               onChange={onChange}
               placeholder='Enter password'
+              required
             />
           </div>
           <div className='form-group'>
@@ -80,6 +83,7 @@ const Register = () => {
               value={password2}
               onChange={onChange}
               placeholder='Confirm password'
+              required
             />
           </div>
           <div className='form-group'>
