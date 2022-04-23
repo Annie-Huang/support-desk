@@ -56,11 +56,13 @@ export const authSlice = createSlice({
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false;
-        state.Error = true;
+        state.isError = true;
         state.message = action.payload; // will pass in through thunkAPI.rejectWithValue(message);
         state.user = null;
       });
   },
 });
+
+export const { reset } = authSlice.actions;
 
 export default authSlice.reducer;
