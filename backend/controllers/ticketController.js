@@ -108,8 +108,8 @@ const deleteTicket = asyncHandler(async (req, res) => {
   res.status(200).json({ success: true });
 });
 
-// @desc    Get user ticket
-// @route   GET /api/tickets/:id  (e.g. http://localhost:5000/api/tickets/6264ffadf4b4615096f327ce)
+// @desc    Update ticket
+// @route   PUT /api/tickets/:id  (e.g. http://localhost:5000/api/tickets/6264ffadf4b4615096f327ce)
 // @access  Private
 const updateTicket = asyncHandler(async (req, res) => {
   // Get user using the id in the JWT
@@ -133,7 +133,14 @@ const updateTicket = asyncHandler(async (req, res) => {
     throw new Error('Not Authorized');
   }
 
-  res.status(200).json(ticket);
+  // { new: true } means if the ticket is not already there, then create it.
+  const updatedTicket = await ticket.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true }
+  );
+
+  res.status(200).json(updatedTicket);
 });
 
 module.exports = {
