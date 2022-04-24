@@ -8,6 +8,10 @@ const NewTicket = () => {
   const [product, setProduct] = useState('iPhone');
   const [description, setDescription] = useState('');
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <section className='heading'>
@@ -37,6 +41,22 @@ const NewTicket = () => {
             disabled
           />
         </div>
+        <form onSubmit={onSubmit}>
+          <div className='form-group'>
+            <label htmlFor='product'>Product</label>
+            <select
+              name='product'
+              id='product'
+              value={product}
+              onChange={(e) => setProduct(e.target.value)}
+            >
+              <option value='iPhone'>iPhone</option>
+              <option value='Macbook Pro'>Macbook Pro</option>
+              <option value='iMac'>iMac</option>
+              <option value='iPad'>iPad</option>
+            </select>
+          </div>
+        </form>
       </section>
     </>
   );
