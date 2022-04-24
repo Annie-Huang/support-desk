@@ -67,6 +67,9 @@ export const authSlice = createSlice({
         state.isError = true;
         state.message = action.payload; // will pass in through thunkAPI.rejectWithValue(message);
         state.user = null;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.user = null;
       });
   },
 });
