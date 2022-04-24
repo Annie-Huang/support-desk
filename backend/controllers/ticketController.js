@@ -108,9 +108,38 @@ const deleteTicket = asyncHandler(async (req, res) => {
   res.status(200).json({ success: true });
 });
 
+// @desc    Get user ticket
+// @route   GET /api/tickets/:id  (e.g. http://localhost:5000/api/tickets/6264ffadf4b4615096f327ce)
+// @access  Private
+const updateTicket = asyncHandler(async (req, res) => {
+  // Get user using the id in the JWT
+  const user = await User.findById(req.user.id);
+
+  if (!user) {
+    res.status(401);
+    throw new Error('User not found');
+  }
+
+  const ticket = await Ticket.findById(req.params.id);
+
+  if (!ticket) {
+    res.status(404);
+    throw new Error('Ticket not found');
+  }
+
+  // Good that we got this step, I was thinking just passing into the ticket id and without user id to retrieve the record is not very good idea.
+  if (ticket.user.toString() !== req.user.id) {
+    res.status(401);
+    throw new Error('Not Authorized');
+  }
+
+  res.status(200).json(ticket);
+});
+
 module.exports = {
   getTickets,
   getTicket,
   createTicket,
   deleteTicket,
+  updateTicket,
 };
