@@ -43,6 +43,7 @@ const NewTicket = () => {
         </div>
         <form onSubmit={onSubmit}>
           <div className='form-group'>
+            {/* label htmlFor need to match input id */}
             <label htmlFor='product'>Product</label>
             <select
               name='product'
@@ -55,6 +56,21 @@ const NewTicket = () => {
               <option value='iMac'>iMac</option>
               <option value='iPad'>iPad</option>
             </select>
+          </div>
+          <div className='form-group'>
+            <label htmlFor='description'>Description of the issue</label>
+            <textarea
+              name='description'
+              id='description'
+              className='form-control'
+              placeholder='Description'
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
+          <div className='form-group'>
+            {/* why the button not needing to define 'type:button'? as default button type is submit */}
+            <button className='btn btn-block'>Submit</button>
           </div>
         </form>
       </section>
