@@ -2,8 +2,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchCount } from '../counter/counterAPI';
 import authService from './authService';
 
+// Get user from localstorage
+const user = JSON.parse(localStorage.getItem('user'));
+
 const initialState = {
-  user: null,
+  user: user ? user : null,
   isError: false,
   isSuccess: false,
   isLoading: false,
