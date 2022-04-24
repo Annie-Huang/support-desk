@@ -134,7 +134,7 @@ const updateTicket = asyncHandler(async (req, res) => {
   }
 
   // { new: true } means if the ticket is not already there, then create it.
-  const updatedTicket = await ticket.findByIdAndUpdate(
+  const updatedTicket = await Ticket.findByIdAndUpdate(
     req.params.id,
     req.body,
     { new: true }
