@@ -35,8 +35,14 @@ const getTicket = asyncHandler(async (req, res) => {
   const ticket = await Ticket.findById(req.params.id);
 
   if (!ticket) {
-    res.status(401);
+    res.status(404);
     throw new Error('Ticket not found');
+  }
+
+  // Good that we got this step, I was thinking just passing into the ticket id and without user id to retrieve the record is not very good idea.
+  if (ticket.user.toString() !== req.user.id) {
+    res.status(401);
+    throw new Error('Not Authorized');
   }
 
   res.status(200).json(ticket);
