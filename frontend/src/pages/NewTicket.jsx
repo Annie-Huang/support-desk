@@ -9,9 +9,12 @@ const NewTicket = () => {
   const [description, setDescription] = useState('');
 
   return (
-    <div>
-      <h1>New Ticket</h1>
-    </div>
+    <>
+      <section className='heading'>
+        <h1>Create New Ticket</h1>
+        <p>Please fill out the form below</p>
+      </section>
+    </>
   );
 };
 
