@@ -36,3 +36,8 @@ PS C:\react\support-desk> npm run server
 
 
 I will keep the support-desk\frontend\src\features\counter so you can see the example from redux official template
+
+
+annie.hn@gmail.com  Password: 123456
+john@gmail.com      Password: 1234
+Sara@gmail.com      Password: 1234
