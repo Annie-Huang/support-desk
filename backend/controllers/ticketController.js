@@ -21,7 +21,7 @@ const getTickets = asyncHandler(async (req, res) => {
 });
 
 // @desc    Get user ticket
-// @route   GET /api/tickets/:id
+// @route   GET /api/tickets/:id  (e.g. http://localhost:5000/api/tickets/6264ffadf4b4615096f327ce)
 // @access  Private
 const getTicket = asyncHandler(async (req, res) => {
   // Get user using the id in the JWT
