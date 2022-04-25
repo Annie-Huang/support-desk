@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import ticketService from './ticketService';
-import authService from '../auth/authService';
-import { register } from '../auth/authSlice';
 
 const initialState = {
   tickets: [],
