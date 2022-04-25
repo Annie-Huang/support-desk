@@ -59,7 +59,7 @@ export const ticketSlice = createSlice({
       .addCase(createTicket.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(createTicket.fulfilled, (state, action) => {
+      .addCase(createTicket.fulfilled, (state) => {
         state.isLoading = false;
         state.isSuccess = true;
       })
@@ -67,6 +67,20 @@ export const ticketSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload; // will pass in through thunkAPI.rejectWithValue(message);
+      })
+      .addCase(getTickets.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getTickets.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.tickets = action.payload;
+      })
+      .addCase(getTickets.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload; // will pass in through thunkAPI.rejectWithValue(message);
+        state.user = null;
       });
   },
 });
