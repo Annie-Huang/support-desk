@@ -22,6 +22,10 @@ const Ticket = () => {
     dispatch(getTicket(ticketId));
   }, [isError, message, ticketId]);
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return <div>Ticket</div>;
 };
 
