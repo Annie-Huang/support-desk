@@ -31,7 +31,28 @@ const Ticket = () => {
     return <h3>Something Went Wrong</h3>;
   }
 
-  return <div>Ticket</div>;
+  return (
+    <div className='ticket-page'>
+      {/* Not sure why we adding the whole info under <header> tag */}
+      <header className='ticket-header'>
+        <BackButton url='/tickets' />
+        <h2>
+          Ticket ID: {ticket._id}
+          <span className={`status status-${ticket.status}`}>
+            {ticket.status}
+          </span>
+        </h2>
+        <h3>
+          Date Submitted: {new Date(ticket.createdAt).toLocaleString('en-AU')}
+        </h3>
+        <hr />
+        <div className='ticket-desc'>
+          <h3>Description of Issue</h3>
+          <p>{ticket.description}</p>
+        </div>
+      </header>
+    </div>
+  );
 };
 
 export default Ticket;
