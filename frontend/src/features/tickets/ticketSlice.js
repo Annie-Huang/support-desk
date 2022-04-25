@@ -64,6 +64,24 @@ export const getTicket = createAsyncThunk(
   }
 );
 
+// Close ticket
+export const closeTicket = createAsyncThunk(
+  'tickets/close',
+  async (ticketId, thunkAPI) => {
+    try {
+      // thunkAPI has access to the store state
+      const token = thunkAPI.getState().auth.user.token;
+
+      return await ticketService.closeTicket(ticketId, token);
+    } catch (error) {
+      const message =
+        error?.response?.data?.message || error.message || error.toString();
+
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const ticketSlice = createSlice({
   name: 'ticket',
   initialState,
