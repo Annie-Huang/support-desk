@@ -21,6 +21,7 @@ const NewTicket = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    dispatch(createTicket({ product, description }));
   };
 
   return (
