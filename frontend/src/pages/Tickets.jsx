@@ -3,6 +3,7 @@ import { getTickets, reset } from '../features/tickets/ticketSlice';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
 import { useEffect } from 'react';
+import TicketItem from '../components/TicketItem';
 
 const Tickets = () => {
   const { tickets, isLoading, isSuccess } = useSelector(
