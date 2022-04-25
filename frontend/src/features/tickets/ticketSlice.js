@@ -46,15 +46,15 @@ export const getTickets = createAsyncThunk(
   }
 );
 
-// Get user tickets
+// Get user ticket
 export const getTicket = createAsyncThunk(
-  'tickets/getAll',
-  async (_, thunkAPI) => {
+  'tickets/get',
+  async (ticketId, thunkAPI) => {
     try {
       // thunkAPI has access to the store state
       const token = thunkAPI.getState().auth.user.token;
 
-      return await ticketService.getTickets(token);
+      return await ticketService.getTicket(ticketId, token);
     } catch (error) {
       const message =
         error?.response?.data?.message || error.message || error.toString();
