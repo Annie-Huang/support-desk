@@ -37,6 +37,21 @@ PS C:\react\support-desk> npm run server
 
 I will keep the support-desk\frontend\src\features\counter so you can see the example from redux official template
 
+C:\react\support-desk\frontend\src\features\tickets\ticketService.js
+shows how to pass token in api call.
+
+C:\react\support-desk\frontend\src\features\tickets\ticketSlice.js
+shows how to get state of other slice in redux store
+
+C:\react\support-desk\frontend\src\hooks\useAuthStatus.js
+C:\react\support-desk\frontend\src\components\PrivateRoute.jsx
+C:\react\support-desk\frontend\src\App.js
+shows how to do route guard.
+
+C:\react\support-desk\backend\middleware\authMiddleware.js
+C:\react\support-desk\backend\routes\ticketRoutes.js
+shows how to do protected route from backend
+
 
 annie.hn@gmail.com  Password: 123456
 john@gmail.com      Password: 1234
