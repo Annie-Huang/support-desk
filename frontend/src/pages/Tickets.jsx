@@ -23,6 +23,10 @@ const Tickets = () => {
     dispatch(getTickets());
   }, [dispatch]);
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return <div></div>;
 };
 
