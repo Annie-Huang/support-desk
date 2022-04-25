@@ -30,6 +30,24 @@ export const createTicket = createAsyncThunk(
   }
 );
 
+// Create new ticket
+export const getTickets = createAsyncThunk(
+  'tickets/create',
+  async (ticketData, thunkAPI) => {
+    try {
+      // thunkAPI has access to the store state
+      const token = thunkAPI.getState().auth.user.token;
+
+      return await ticketService.createTicket(ticketData, token);
+    } catch (error) {
+      const message =
+        error?.response?.data?.message || error.message || error.toString();
+
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const ticketSlice = createSlice({
   name: 'ticket',
   initialState,
