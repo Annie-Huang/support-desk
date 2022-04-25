@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import ticketService from './ticketService';
+import authService from '../auth/authService';
 
 const initialState = {
   tickets: [],
@@ -9,6 +10,23 @@ const initialState = {
   isLoading: false,
   message: '',
 };
+
+// Register new user
+export const createTicket = createAsyncThunk(
+  'auth/register',
+  async (user, thunkAPI) => {
+    // console.log('register, user=', user);
+
+    try {
+      return await authService.register(user);
+    } catch (error) {
+      const message =
+        error?.response?.data?.message || error.message || error.toString();
+
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
 export const ticketSlice = createSlice({
   name: 'ticket',
