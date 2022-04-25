@@ -26,6 +26,11 @@ const Ticket = () => {
     return <Spinner />;
   }
 
+  // No sure why we only do this in Ticket.jsx but not in Tickets.jsx
+  if (isError) {
+    return <h3>Something Went Wrong</h3>;
+  }
+
   return <div>Ticket</div>;
 };
 
