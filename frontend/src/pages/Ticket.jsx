@@ -20,6 +20,12 @@ const Ticket = () => {
     }
 
     dispatch(getTicket(ticketId));
+
+    // Will get warning because dispatch is not in the depending. But Brad said it will go into inifinite loop if we add it in
+    // Is it because the fetch call is from on page load vs the api call is in button clicked in Registarer page?
+    // But Tickets.jsx also add dispatch for dependency list and seems to work fine.
+
+    // eslint-disable-next-line
   }, [isError, message, ticketId]);
 
   if (isLoading) {
