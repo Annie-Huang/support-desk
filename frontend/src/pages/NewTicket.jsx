@@ -1,12 +1,23 @@
-import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { createTicket, reset } from '../features/tickets/ticketSlice';
+import Spinner from '../components/Spinner';
 
 const NewTicket = () => {
   const { user } = useSelector((state) => state.auth);
+  const { isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.ticket
+  );
+
   const [name] = useState(user.name);
   const [email] = useState(user.email);
   const [product, setProduct] = useState('iPhone');
   const [description, setDescription] = useState('');
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = (e) => {
     e.preventDefault();
