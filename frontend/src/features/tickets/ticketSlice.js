@@ -131,6 +131,19 @@ export const ticketSlice = createSlice({
         state.message = action.payload; // will pass in through thunkAPI.rejectWithValue(message);
         // I add this line just to be save:
         state.ticket = {};
+      })
+      .addCase(closeTicket.fulfilled, (state, action) => {
+        state.isLoading = false;
+        // I am a bit confused by the intention of this. is closeTicket only be available in Tickets.jsx page?
+        // Because when Ticket page is loaded and Tickets page is unmounted. the tickets.tickets field in redux store is already set to []
+        // There is a reset when we unmount the Tickets page.
+        // Also why it doesn't need to assign back to state tickets like this??
+        //    state.tickets = state.tickets.map((ticket) =>
+        state.tickets.map((ticket) =>
+          ticket._id === action.payload._id
+            ? (ticket.status = 'closed')
+            : ticket
+        );
       });
   },
 });

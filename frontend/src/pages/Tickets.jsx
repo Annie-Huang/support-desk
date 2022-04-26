@@ -12,6 +12,7 @@ const Tickets = () => {
 
   const dispatch = useDispatch();
 
+  // This will be call when the page is unmounted
   useEffect(() => {
     return () => {
       if (isSuccess) {
