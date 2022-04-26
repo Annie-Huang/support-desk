@@ -106,6 +106,7 @@ export const ticketSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getTickets.fulfilled, (state, action) => {
+        // console.log('=========== on getTickets.fulfilled', action.payload);
         state.isLoading = false;
         state.isSuccess = true;
         state.tickets = action.payload;
@@ -133,12 +134,17 @@ export const ticketSlice = createSlice({
         state.ticket = {};
       })
       .addCase(closeTicket.fulfilled, (state, action) => {
+        // console.log(
+        //   '=========== on closeTicket.fulfilled',
+        //   JSON.stringify(state.tickets)
+        // );
         state.isLoading = false;
-        // I am a bit confused by the intention of this. is closeTicket only be available in Tickets.jsx page?
-        // Because when Ticket page is loaded and Tickets page is unmounted. the tickets.tickets field in redux store is already set to []
-        // There is a reset when we unmount the Tickets page.
-        // Also why it doesn't need to assign back to state tickets like this??
-        //    state.tickets = state.tickets.map((ticket) =>
+        // There is not guarantee, when a close ticket button is clicked and the page go back to tickets page, which one of the following will happen first.
+        //  closeTicket.fulfilled
+        //  getTickets.fulfilled
+        // If closeTicket.fulfilled happens first, it will try to update a [] tickets array, which does nothing, but getTickets.fulfilled will have the correct info from the server
+        // If getTickets.fulfilled happens first, it will have the specific ticket still have status === 'new', so the follow steps will update it.
+        // hence it doesn't matter which one happens first. In fact, when I tried it, the order of the fulfilled changes between different clicks
         state.tickets.map((ticket) =>
           ticket._id === action.payload._id
             ? (ticket.status = 'closed')
