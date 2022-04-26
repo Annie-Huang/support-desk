@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+// 'User' and 'Ticket' are refer to:
+// module.exports = mongoose.model('User', userSchema);
+// module.exports = mongoose.model('Ticket', ticketSchema);
 const noteSchema = mongoose.Schema(
   {
     user: {
@@ -7,20 +10,21 @@ const noteSchema = mongoose.Schema(
       required: true,
       ref: 'User',
     },
-    product: {
-      type: String,
-      required: [true, 'Please select a product'],
-      enum: ['iPhone', 'Macbook Pro', 'iMac', 'iPad'],
-    },
-    description: {
-      type: String,
-      required: [true, 'Please enter a description of the issue'],
-    },
-    status: {
-      type: String,
+    ticket: {
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
-      enum: ['new', 'open', 'closed'],
-      default: 'new',
+      ref: 'Ticket',
+    },
+    text: {
+      type: String,
+      required: [true, 'Please add some text'],
+    },
+    isStaff: {
+      type: Boolean,
+      default: false,
+    },
+    staffId: {
+      type: String,
     },
   },
   {
