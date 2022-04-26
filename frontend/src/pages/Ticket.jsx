@@ -59,6 +59,7 @@ const Ticket = () => {
         <h3>
           Date Submitted: {new Date(ticket.createdAt).toLocaleString('en-AU')}
         </h3>
+        <h3>Product: {ticket.product}</h3>
         <hr />
         <div className='ticket-desc'>
           <h3>Description of Issue</h3>
