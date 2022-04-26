@@ -24,5 +24,26 @@ const getNotes = asyncHandler(async (req, res) => {
     throw new Error('User not authorized');
   }
 
-  res.status(200).json(tickets);
+  // Current mongoose method includes:
+  // XXX.find({<fieldname>: <fieldValue>})
+  // XXX.findOne({<fieldname>: <fieldValue>})
+  // XXX.findById(<fieldValue>)
+  // XXX.findByIdAndUpdate(
+  //     req.params.id,
+  //     req.body,
+  //     { new: true }
+  //   )
+  // XXX.create({
+  //     <fieldname>: <fieldValue>,
+  //     <fieldname>: <fieldValue>,
+  //     <fieldname>: <fieldValue>,
+  //   })
+
+  const notes = await Note.find({ ticket: req.params.ticketId });
+
+  res.status(200).json(notes);
 });
+
+module.exports = {
+  getNotes,
+};
