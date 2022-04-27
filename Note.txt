@@ -52,6 +52,23 @@ C:\react\support-desk\backend\middleware\authMiddleware.js
 C:\react\support-desk\backend\routes\ticketRoutes.js
 shows how to do protected route from backend
 
+------------------
+  Current mongoose method includes:
+  XXX.find({<fieldname>: <fieldValue>})
+  XXX.findOne({<fieldname>: <fieldValue>})
+  XXX.findById(<fieldValue>)
+  XXX.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    )
+  XXX.create({
+      <fieldname>: <fieldValue>,
+      <fieldname>: <fieldValue>,
+      <fieldname>: <fieldValue>,
+    })
+
+------------------
 
 annie.hn@gmail.com  Password: 123456
 john@gmail.com      Password: 1234
