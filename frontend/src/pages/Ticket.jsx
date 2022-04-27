@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTicket, closeTicket } from '../features/tickets/ticketSlice';
 import { getNotes, reset as notesReset } from '../features/notes/noteSlice';
 import Spinner from '../components/Spinner';
+import NoteItem from '../components/NoteItem';
 import BackButton from '../components/BackButton';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -71,7 +72,13 @@ const Ticket = () => {
           <h3>Description of Issue</h3>
           <p>{ticket.description}</p>
         </div>
+        <h2>Notes</h2>
       </header>
+
+      {/* Very strange that <h2>Notes</h2> is separated from below from the <header> */}
+      {notes.map((note) => (
+        <NoteItem key={note._id} note={note} />
+      ))}
 
       {ticket.status !== 'closed' && (
         <button onClick={onTicketClose} className='btn btn-block btn-danger'>
