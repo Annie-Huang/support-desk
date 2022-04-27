@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getTicket, closeTicket } from '../features/tickets/ticketSlice';
-import { getNotes, reset as notesReset } from '../features/notes/noteService';
+import { getNotes, reset as notesReset } from '../features/notes/noteSlice';
 import Spinner from '../components/Spinner';
 import BackButton from '../components/BackButton';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -26,6 +26,7 @@ const Ticket = () => {
     }
 
     dispatch(getTicket(ticketId));
+    dispatch(getNotes(ticketId));
 
     // Will get warning because dispatch is not in the depending. But Brad said it will go into inifinite loop if we add it in
     // Is it because the fetch call is from on page load vs the api call is in button clicked in Registarer page?
@@ -41,7 +42,7 @@ const Ticket = () => {
     navigate('/tickets');
   };
 
-  if (isLoading) {
+  if (isLoading || notesIsLoading) {
     return <Spinner />;
   }
 
