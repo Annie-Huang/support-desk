@@ -2,16 +2,15 @@ import axios from 'axios';
 
 const API_URL = '/api/tickets';
 
-// Get user tickets
-const getNotes = async (token) => {
+// Get ticket notes
+const getNotes = async (ticketId, token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
 
-  // C:\react\support-desk\frontend\node_modules\axios\index.d.ts
-  const response = await axios.get(API_URL, config);
+  const response = await axios.get(`${API_URL}/${ticketId}/notes`, config);
 
   return response.data;
 };
