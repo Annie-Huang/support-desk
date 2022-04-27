@@ -1,7 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import noteService from './noteService';
-import ticketService from '../tickets/ticketService';
-import { getTicket } from '../tickets/ticketSlice';
 
 const initialState = {
   notes: [],
