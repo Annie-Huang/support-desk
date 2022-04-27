@@ -115,7 +115,7 @@ export const ticketSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload; // will pass in through thunkAPI.rejectWithValue(message);
-        // I add this line just to be save:
+        // I add this line just to be safe:
         state.tickets = [];
       })
       .addCase(getTicket.pending, (state) => {
@@ -130,7 +130,7 @@ export const ticketSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload; // will pass in through thunkAPI.rejectWithValue(message);
-        // I add this line just to be save:
+        // I add this line just to be safe:
         state.ticket = {};
       })
       .addCase(closeTicket.fulfilled, (state, action) => {
