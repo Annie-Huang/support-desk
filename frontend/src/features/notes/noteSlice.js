@@ -65,6 +65,19 @@ export const noteSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload; // will pass in through thunkAPI.rejectWithValue(message);
+      })
+      .addCase(createNote.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createNote.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.notes.push(action.payload); // you can mutate state with redux-toolkit, but not original redux
+      })
+      .addCase(createNote.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload; // will pass in through thunkAPI.rejectWithValue(message);
       });
   },
 });
