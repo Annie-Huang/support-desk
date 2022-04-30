@@ -72,6 +72,7 @@ const Ticket = () => {
     e.preventDefault();
     dispatch(createNote({ noteText, ticketId }));
     closeModal();
+    setNoteText('');
   };
 
   // Open/close modal
