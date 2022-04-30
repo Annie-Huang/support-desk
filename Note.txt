@@ -17,7 +17,7 @@ Part 1 is at C:\react\feedback-app
 Part 2 is at C:\react\github-finder
 Part 3 is at C:\react\react-sandbox
 Part 4 is at C:\react\house-marketplace
-This project is Part 5.
+This project is Part 5. (I didn't follow the last chapter, 'Deploy To Heroku' step)
 
 =============================================
 PS C:\react> mkdir support-desk
