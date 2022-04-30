@@ -63,6 +63,14 @@ const Ticket = () => {
     navigate('/tickets');
   };
 
+  // Open/close modal
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   if (isLoading || notesIsLoading) {
     return <Spinner />;
   }
@@ -96,7 +104,7 @@ const Ticket = () => {
       </header>
 
       {ticket.status !== 'closed' && (
-        <button className='btn'>
+        <button onClick={openModal} className='btn'>
           <FaPlus /> Add Note
         </button>
       )}
