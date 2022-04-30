@@ -109,6 +109,15 @@ const Ticket = () => {
         </button>
       )}
 
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel='Add Note'
+      >
+        <h2>Add Note</h2>
+      </Modal>
+
       {/* Very strange that <h2>Notes</h2> is separated from below from the <header> */}
       {notes.map((note) => (
         <NoteItem key={note._id} note={note} />
