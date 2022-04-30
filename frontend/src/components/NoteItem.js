@@ -15,6 +15,10 @@ const NoteItem = ({ note }) => {
       <h4>
         Note from <span>{note.isStaff ? 'Staff' : user.name}</span>
       </h4>
+      <p>{note.text}</p>
+      <div className='note-date'>
+        {new Date(note.createdAt).toLocaleString('en-AU')}
+      </div>
     </div>
   );
 };
