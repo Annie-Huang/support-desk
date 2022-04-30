@@ -63,6 +63,12 @@ const Ticket = () => {
     navigate('/tickets');
   };
 
+  // Create note submit
+  const onNoteSubmit = (e) => {
+    e.preventDefault();
+    console.log('Submit');
+  };
+
   // Open/close modal
   const openModal = () => {
     setModalIsOpen(true);
@@ -116,6 +122,26 @@ const Ticket = () => {
         contentLabel='Add Note'
       >
         <h2>Add Note</h2>
+        <button className='btn-close' onClick={closeModal}>
+          X
+        </button>
+        <form onSubmit={onNoteSubmit}>
+          <div className='form-group'>
+            <textarea
+              name='noteText'
+              id='noteText'
+              className='form-control'
+              placeholder='Note text'
+              value={noteText}
+              onChange={(e) => setNoteText(e.target.value)}
+            />
+          </div>
+          <div className='form-group'>
+            <button className='btn' type='submit'>
+              Submit
+            </button>
+          </div>
+        </form>
       </Modal>
 
       {/* Very strange that <h2>Notes</h2> is separated from below from the <header> */}
