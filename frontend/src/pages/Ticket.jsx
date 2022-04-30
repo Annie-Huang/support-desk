@@ -67,6 +67,7 @@ const Ticket = () => {
   const onNoteSubmit = (e) => {
     e.preventDefault();
     console.log('Submit');
+    closeModal();
   };
 
   // Open/close modal
