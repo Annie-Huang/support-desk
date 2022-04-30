@@ -27,15 +27,15 @@ export const getNotes = createAsyncThunk(
   }
 );
 
-// Get ticket notes
-export const CreateNote = createAsyncThunk(
-  'notes/getAll',
-  async (ticketId, thunkAPI) => {
+// Create ticket note
+export const createNote = createAsyncThunk(
+  'notes/create',
+  async ({ noteText, ticketId }, thunkAPI) => {
     try {
       // thunkAPI has access to the store state
       const token = thunkAPI.getState().auth.user.token;
 
-      return await noteService.getNotes(ticketId, token);
+      return await noteService.createNote(noteText, ticketId, token);
     } catch (error) {
       const message =
         error?.response?.data?.message || error.message || error.toString();
