@@ -7,6 +7,22 @@ import BackButton from '../components/BackButton';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
+import Modal from 'react-modal';
+
+const customStyles = {
+  content: {
+    width: '600px',
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    position: 'relative',
+  },
+};
+
+Modal.setAppElement('#root');
 
 const Ticket = () => {
   const { ticket, isLoading, isSuccess, isError, message } = useSelector(
