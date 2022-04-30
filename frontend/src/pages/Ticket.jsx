@@ -6,8 +6,9 @@ import NoteItem from '../components/NoteItem';
 import BackButton from '../components/BackButton';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
+import { FaPlus } from 'react-icons/fa';
 
 const customStyles = {
   content: {
@@ -25,6 +26,9 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 const Ticket = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [noteText, setNoteText] = useState('');
+
   const { ticket, isLoading, isSuccess, isError, message } = useSelector(
     (state) => state.tickets
   );
@@ -90,6 +94,12 @@ const Ticket = () => {
         </div>
         <h2>Notes</h2>
       </header>
+
+      {ticket.status !== 'closed' && (
+        <button className='btn'>
+          <FaPlus /> Add Note
+        </button>
+      )}
 
       {/* Very strange that <h2>Notes</h2> is separated from below from the <header> */}
       {notes.map((note) => (
